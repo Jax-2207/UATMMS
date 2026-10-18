@@ -1,0 +1,224 @@
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-primary-orange: #ea580c;
+  --color-primary-orange-hover: #c2410c;
+  --color-emergency-red: #dc2626;
+  --color-emergency-red-dark: #b91c1c;
+  --color-success-green: #16a34a;
+  --color-warning-amber: #f59e0b;
+
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --border-subtle: #e2e8f0;
+  --border-light: #f1f5f9;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-sub: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #0b0f19;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+/* Device Shell for Android Showcase */
+.android-device-frame {
+  width: 100%;
+  max-width: 395px;
+  height: 844px;
+  background: #ffffff;
+  border-radius: 44px;
+  box-shadow: 
+    0 0 0 10px #1e293b,
+    0 0 0 12px #334155,
+    0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+    background: #ffffff;
+  }
+  .android-device-frame {
+    max-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* Android Camera Punch Hole */
+.android-punch-hole {
+  width: 12px;
+  height: 12px;
+  background: #000000;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* Android Navigation Bar Pill */
+.android-nav-pill {
+  width: 110px;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  margin: 6px auto 4px auto;
+  flex-shrink: 0;
+}
+
+.android-nav-pill.white {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Buttons */
+.btn-orange {
+  background: var(--color-primary-orange);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  transition: transform 0.1s ease, background 0.15s ease;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+}
+
+.btn-orange:active {
+  transform: scale(0.98);
+}
+
+.btn-red {
+  background: var(--color-emergency-red);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  transition: transform 0.1s ease, background 0.15s ease;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-red:active {
+  transform: scale(0.98);
+}
+
+.btn-white {
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  transition: transform 0.1s ease, background 0.15s ease;
+  width: 100%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.btn-white:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary:active {
+  background: #e2e8f0;
+}
+
+/* Subtle Cards & Shadow */
+.card-android {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+/* Animations */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 0.5; }
+  100% { transform: scale(0.95); opacity: 0.9; }
+}
+
+.pulse-emergency {
+  animation: pulse-ring 1.8s infinite;
+}
+
+/* Custom Scrollbar for Phone Container */
+.phone-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+.phone-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}

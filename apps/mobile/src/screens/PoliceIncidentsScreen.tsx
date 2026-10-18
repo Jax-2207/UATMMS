@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Siren, Sliders } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 import { NetworkMap } from '../components/NetworkMap';
 
 interface PoliceIncidentsScreenProps {
@@ -16,8 +15,7 @@ export const PoliceIncidentsScreen: React.FC<PoliceIncidentsScreenProps> = ({
   return (
     <div className="flex-1 flex flex-col bg-slate-50 select-none overflow-hidden">
       {/* Header */}
-      <div className="bg-white border-b border-slate-100">
-        <AndroidStatusBar theme="light" />
+      <div className="bg-white border-b border-slate-100 pt-3">
         <div className="px-5 pb-3 flex items-center justify-between">
           <div>
             <h2 className="font-heading font-extrabold text-base text-slate-900 leading-tight">

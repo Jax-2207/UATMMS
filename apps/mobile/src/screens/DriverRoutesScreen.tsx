@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Sparkles, Navigation } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 import { NetworkMap } from '../components/NetworkMap';
 
 interface DriverRoutesScreenProps {
@@ -42,8 +41,7 @@ export const DriverRoutesScreen: React.FC<DriverRoutesScreenProps> = ({
   return (
     <div className="flex-1 flex flex-col bg-slate-50 select-none overflow-hidden">
       {/* Top Bar */}
-      <div className="bg-white border-b border-slate-100">
-        <AndroidStatusBar theme="light" />
+      <div className="bg-white border-b border-slate-100 pt-3">
         <div className="px-4 pb-3 flex items-center gap-3">
           <button
             onClick={onBack}

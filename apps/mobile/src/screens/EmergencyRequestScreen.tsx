@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { MapPin, Siren, Check } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 
 interface EmergencyRequestScreenProps {
   onRequestCorridor: () => void;
@@ -22,8 +21,7 @@ export const EmergencyRequestScreen: React.FC<EmergencyRequestScreenProps> = ({
   return (
     <div className="flex-1 flex flex-col bg-slate-50 select-none overflow-hidden">
       {/* Header */}
-      <div className="bg-white border-b border-slate-100">
-        <AndroidStatusBar theme="light" />
+      <div className="bg-white border-b border-slate-100 pt-3">
         <div className="px-5 pb-3">
           <h2 className="font-heading font-extrabold text-base text-slate-900 leading-tight">
             Request green corridor

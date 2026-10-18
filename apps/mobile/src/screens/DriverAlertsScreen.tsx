@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Siren, AlertTriangle, Clock, Zap, CheckCircle2 } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 
 interface DriverAlertsScreenProps {
   onTriggerEmergencyTakeover: () => void;
@@ -55,8 +54,7 @@ export const DriverAlertsScreen: React.FC<DriverAlertsScreenProps> = ({
   return (
     <div className="flex-1 flex flex-col bg-slate-50 select-none overflow-hidden">
       {/* Top Header */}
-      <div className="bg-white border-b border-slate-100">
-        <AndroidStatusBar theme="light" />
+      <div className="bg-white border-b border-slate-100 pt-3">
         <div className="px-5 pb-3">
           <h2 className="font-heading font-extrabold text-base text-slate-900 leading-tight">
             Alerts

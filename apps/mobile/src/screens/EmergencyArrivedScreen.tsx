@@ -1,6 +1,5 @@
 import React from 'react';
 import { Check, CheckCircle2 } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 
 interface EmergencyArrivedScreenProps {
   onDone: () => void;
@@ -8,11 +7,9 @@ interface EmergencyArrivedScreenProps {
 
 export const EmergencyArrivedScreen: React.FC<EmergencyArrivedScreenProps> = ({ onDone }) => {
   return (
-    <div className="flex-1 flex flex-col justify-between bg-white px-6 pb-6 pt-1 select-none overflow-hidden">
+    <div className="flex-1 flex flex-col justify-between bg-white px-6 pb-6 pt-6 select-none overflow-hidden">
       <div>
-        <AndroidStatusBar theme="light" />
-
-        <div className="flex flex-col items-center text-center mt-8">
+        <div className="flex flex-col items-center text-center mt-6">
           {/* Green Checkmark Circle */}
           <div className="w-20 h-20 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xl shadow-emerald-500/20 mb-5">
             <Check className="w-10 h-10 stroke-[3.5]" />

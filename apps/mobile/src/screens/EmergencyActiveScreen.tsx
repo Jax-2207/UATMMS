@@ -1,6 +1,5 @@
 import React from 'react';
 import { AlertOctagon } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 import { NetworkMap } from '../components/NetworkMap';
 
 interface EmergencyActiveScreenProps {
@@ -23,9 +22,7 @@ export const EmergencyActiveScreen: React.FC<EmergencyActiveScreenProps> = ({
   return (
     <div className="flex-1 flex flex-col bg-slate-50 select-none overflow-hidden">
       {/* Top Bar with Green Corridor Active Banner */}
-      <div className="bg-white border-b border-slate-100">
-        <AndroidStatusBar theme="light" />
-        
+      <div className="bg-white border-b border-slate-100 pt-3">
         <div className="px-4 pb-2.5">
           <div className="bg-emerald-600 text-white rounded-xl px-3 py-1.5 flex items-center justify-between shadow-sm">
             <div className="flex items-center gap-2">

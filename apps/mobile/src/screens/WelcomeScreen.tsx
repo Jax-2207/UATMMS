@@ -1,6 +1,5 @@
 import React from 'react';
 import { Car, Siren, Shield, ChevronRight } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 
 interface WelcomeScreenProps {
   onSelectRole: (role: 'driver' | 'emergency' | 'police') => void;
@@ -8,9 +7,8 @@ interface WelcomeScreenProps {
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onSelectRole }) => {
   return (
-    <div className="flex-1 flex flex-col justify-between bg-white px-6 pb-6 pt-1 select-none">
+    <div className="flex-1 flex flex-col justify-between bg-white px-6 pb-6 pt-4 select-none">
       <div>
-        <AndroidStatusBar theme="light" />
 
         {/* Brand Logo & Header */}
         <div className="mt-6 flex flex-col items-start gap-4">

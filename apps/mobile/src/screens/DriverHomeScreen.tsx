@@ -1,6 +1,5 @@
 import React from 'react';
 import { Search, Siren, ChevronRight } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 import { NetworkMap } from '../components/NetworkMap';
 
 interface DriverHomeScreenProps {
@@ -15,11 +14,7 @@ export const DriverHomeScreen: React.FC<DriverHomeScreenProps> = ({
   onTriggerEmergencyTakeover,
 }) => {
   return (
-    <div className="flex-1 flex flex-col bg-slate-50 select-none overflow-hidden">
-      {/* Status Bar */}
-      <div className="bg-white">
-        <AndroidStatusBar theme="light" />
-      </div>
+    <div className="flex-1 flex flex-col bg-slate-50 select-none overflow-hidden pt-2">
 
       <div className="flex-1 flex flex-col p-4 gap-3 overflow-y-auto phone-scroll">
         {/* Top Search Bar */}

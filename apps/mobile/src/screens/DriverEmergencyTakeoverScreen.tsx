@@ -1,6 +1,5 @@
 import React from 'react';
 import { Plus } from 'lucide-react';
-import { AndroidStatusBar } from '../components/AndroidStatusBar';
 
 interface DriverEmergencyTakeoverScreenProps {
   onDismiss: () => void;
@@ -15,11 +14,6 @@ export const DriverEmergencyTakeoverScreen: React.FC<DriverEmergencyTakeoverScre
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
         <div className="w-72 h-72 rounded-full border-2 border-white animate-ping" />
         <div className="w-96 h-96 rounded-full border border-white" />
-      </div>
-
-      {/* Status Bar */}
-      <div className="relative z-10 -mx-6 -mt-6 bg-red-600/50 backdrop-blur-sm">
-        <AndroidStatusBar theme="dark" />
       </div>
 
       {/* Main Content */}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tlLogics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tllogic_file.xsd">
+    <!-- Standard 6-Phase Signal Program for 4-Way Urban Arterial Intersections -->
+    <!-- Phase 0: North-South Green (Major Flow) - 30s -->
+    <!-- Phase 1: North-South Yellow Clearance - 3s -->
+    <!-- Phase 2: All Red Clearance - 2s -->
+    <!-- Phase 3: East-West Green (Cross Flow) - 25s -->
+    <!-- Phase 4: East-West Yellow Clearance - 3s -->
+    <!-- Phase 5: All Red Clearance - 2s -->
+
+    <tlLogic id="J1_MG_Road" type="static" programID="0" offset="0">
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+    </tlLogic>
+
+    <tlLogic id="J2_Brigade_Rd" type="static" programID="0" offset="5">
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+    </tlLogic>
+
+    <tlLogic id="J3_Residency_Rd" type="static" programID="0" offset="10">
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+    </tlLogic>
+
+    <tlLogic id="J4_Church_St" type="static" programID="0" offset="0">
+        <phase duration="25" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+    </tlLogic>
+
+    <tlLogic id="J5_Commercial_St" type="static" programID="0" offset="5">
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+    </tlLogic>
+
+    <tlLogic id="J6_Lavelle_Rd" type="static" programID="0" offset="10">
+        <phase duration="25" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+    </tlLogic>
+</tlLogics>

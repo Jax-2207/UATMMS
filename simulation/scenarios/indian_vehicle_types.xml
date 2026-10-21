@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  UATMMS Indian Vehicle Types Specification
+  Calibrated for heterogeneous, dense mixed traffic conditions.
+-->
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <!-- 1. Passenger Cars (Hatchbacks / Sedans / SUVs) -->
+    <vType id="passenger_car" 
+           vClass="passenger" 
+           length="4.50" 
+           width="1.80" 
+           maxSpeed="16.67" 
+           accel="2.6" 
+           decel="4.5" 
+           emergencyDecel="7.0"
+           minGap="1.50" 
+           tau="0.9" 
+           color="0,242,254"/>
+
+    <!-- 2. Two-Wheelers (Motorcycles & Scooters - fast acceleration, agile filtering, small headway) -->
+    <vType id="two_wheeler" 
+           vClass="motorcycle" 
+           length="1.80" 
+           width="0.80" 
+           maxSpeed="14.00" 
+           accel="3.2" 
+           decel="5.0" 
+           emergencyDecel="8.0"
+           minGap="0.60" 
+           tau="0.6" 
+           color="16,185,129"/>
+
+    <!-- 3. Auto-Rickshaws (Three-wheelers - moderate speed, highly maneuverable) -->
+    <vType id="auto_rickshaw" 
+           vClass="passenger" 
+           length="2.80" 
+           width="1.30" 
+           maxSpeed="11.11" 
+           accel="2.0" 
+           decel="4.0" 
+           emergencyDecel="6.0"
+           minGap="1.00" 
+           tau="0.8" 
+           color="245,158,11"/>
+
+    <!-- 4. City Buses (BMTC style transit - long vehicle, slower acceleration, large headway) -->
+    <vType id="city_bus" 
+           vClass="bus" 
+           length="11.50" 
+           width="2.50" 
+           maxSpeed="11.11" 
+           accel="1.4" 
+           decel="3.5" 
+           emergencyDecel="5.5"
+           minGap="2.50" 
+           tau="1.2" 
+           color="59,130,246"/>
+
+    <!-- 5. Emergency Ambulances (High priority, high top speed, authorized for preemption) -->
+    <vType id="emergency_ambulance" 
+           vClass="emergency" 
+           length="6.00" 
+           width="2.00" 
+           maxSpeed="22.22" 
+           accel="3.5" 
+           decel="6.0" 
+           emergencyDecel="8.5"
+           minGap="1.20" 
+           tau="0.7" 
+           color="239,68,68"/>
+
+    <!-- 6. Fire Engine (Heavy emergency response) -->
+    <vType id="emergency_fire" 
+           vClass="emergency" 
+           length="9.00" 
+           width="2.50" 
+           maxSpeed="18.00" 
+           accel="2.5" 
+           decel="5.0" 
+           emergencyDecel="7.5"
+           minGap="1.50" 
+           tau="0.8" 
+           color="220,38,38"/>
+</additional>

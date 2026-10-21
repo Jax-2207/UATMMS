@@ -17,6 +17,15 @@ import {
   Car,
   ChevronRight
 } from 'lucide-react';
+import {
+  startSimulation,
+  pauseSimulation,
+  stepSimulation,
+  resetSimulation,
+  dispatchEmergency,
+  reportIncident
+} from './helpers/api/simulationApiHelper';
+import { WS_BASE_URL } from './utils/constants';
 
 interface Junction {
   id: string;
@@ -71,7 +80,7 @@ export function App() {
   useEffect(() => {
     let ws: WebSocket | null = null;
     try {
-      ws = new WebSocket('ws://localhost:8000/ws/simulation');
+      ws = new WebSocket(WS_BASE_URL);
       ws.onopen = () => setWsConnected(true);
       ws.onclose = () => setWsConnected(false);
       ws.onmessage = (event) => {
@@ -110,22 +119,18 @@ export function App() {
     return () => clearInterval(interval);
   }, [simRunning, wsConnected]);
 
-  // Actions
+  // Actions routed via simulationApiHelper
   const handleStart = async () => {
     try {
-      await fetch('http://localhost:8000/api/v1/simulation/start', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ scenario_id: 'default_6junctions', seed: 42 })
-      });
+      await startSimulation('bengaluru_core', 42);
     } catch {}
     setSimRunning(true);
-    addLog('system', 'Simulation started [Scenario: 6-Junction Urban Grid, Seed: 42]', 'info');
+    addLog('system', 'Simulation started [Scenario: Bengaluru CBD Core Grid, Seed: 42]', 'info');
   };
 
   const handlePause = async () => {
     try {
-      await fetch('http://localhost:8000/api/v1/simulation/pause', { method: 'POST' });
+      await pauseSimulation();
     } catch {}
     setSimRunning(false);
     addLog('system', 'Simulation paused by operator.', 'info');
@@ -133,7 +138,7 @@ export function App() {
 
   const handleStep = async () => {
     try {
-      await fetch('http://localhost:8000/api/v1/simulation/step', { method: 'POST' });
+      await stepSimulation();
     } catch {}
     setSimTime(t => t + 1);
     setStepCount(s => s + 1);
@@ -142,7 +147,7 @@ export function App() {
 
   const handleReset = async () => {
     try {
-      await fetch('http://localhost:8000/api/v1/simulation/reset', { method: 'POST' });
+      await resetSimulation();
     } catch {}
     setSimRunning(false);
     setSimTime(0);
@@ -153,16 +158,12 @@ export function App() {
   const handleEmergencyTrigger = async () => {
     const ambId = `AMB-${Math.floor(100 + Math.random() * 900)}`;
     try {
-      await fetch('http://localhost:8000/api/v1/emergencies/dispatch', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          vehicle_id: ambId,
-          vehicle_type: 'ambulance',
-          origin_edge_id: 'E_MG_Road_North',
-          destination_edge_id: 'E_Victoria_Hospital',
-          urgency_level: 1
-        })
+      await dispatchEmergency({
+        vehicle_id: ambId,
+        vehicle_type: 'ambulance',
+        origin_edge_id: 'E_W1_in',
+        destination_edge_id: 'E_E3_out',
+        urgency_level: 1,
       });
     } catch {}
     setActiveCorridors(c => c + 1);
@@ -171,15 +172,11 @@ export function App() {
 
   const handleIncidentInject = async (type: string) => {
     try {
-      await fetch('http://localhost:8000/api/v1/incidents/report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          incident_type: type,
-          edge_id: 'E_Brigade_Main',
-          severity: 3,
-          description: `Simulated ${type.replace('_', ' ')} injected.`
-        })
+      await reportIncident({
+        incident_type: type as any,
+        edge_id: 'E_BRIGADE_J2_J5',
+        severity: 3,
+        description: `Simulated ${type.replace('_', ' ')} injected.`,
       });
     } catch {}
     addLog('incident', `Incident injected: ${type.replace('_', ' ').toUpperCase()} on Brigade Road. Rerouting activated.`, 'rejected');

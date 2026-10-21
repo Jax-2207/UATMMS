@@ -1,8 +1,15 @@
 import asyncio
 import json
 from contextlib import asynccontextmanager
+from pathlib import Path
+import sys
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+
+# Ensure repository root is on sys.path for direct execution
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from backend.app.core.config import settings
 from backend.app.core.logging import logger

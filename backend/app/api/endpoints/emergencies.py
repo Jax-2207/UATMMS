@@ -2,6 +2,7 @@ import uuid
 from fastapi import APIRouter
 from backend.app.schemas.emergency import EmergencyRequest, GreenCorridorResponse
 from backend.app.safety.validator import safety_validator
+from backend.app.simulation.manager import simulation_manager
 
 router = APIRouter()
 
@@ -14,7 +15,7 @@ async def dispatch_emergency(request: EmergencyRequest):
     assigned_route = [request.origin_edge_id, "E_Brigade_Main", "E_Church_Connect", request.destination_edge_id]
     affected_junctions = ["J1_MG_Road", "J2_Brigade_Rd", "J4_Church_St"]
     
-    # Validate each junction with safety validator
+    # Validate each junction with safety validator using current simulation time
     safety_approved = True
     rejection_reason = None
     
@@ -22,6 +23,7 @@ async def dispatch_emergency(request: EmergencyRequest):
         valid, reason = safety_validator.validate_phase_transition(
             junction_id=j_id,
             target_phase=1,  # Emergency prioritized green phase
+            current_sim_time_s=simulation_manager.sim_time_s,
             is_emergency=True
         )
         if not valid:

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tlLogics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tllogic_file.xsd">
+    <tlLogic id="J_CENTER" type="static" programID="0" offset="0">
+        <!-- Phase 0: North-South Green -->
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="North-South Green"/>
+        <!-- Phase 1: North-South Yellow -->
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="North-South Yellow"/>
+        <!-- Phase 2: All Red Clearance -->
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+        <!-- Phase 3: East-West Green -->
+        <phase duration="30" state="rrrrGGGGggrrrrGGGGgg" name="East-West Green"/>
+        <!-- Phase 4: East-West Yellow -->
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="East-West Yellow"/>
+        <!-- Phase 5: All Red Clearance -->
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red Clearance"/>
+    </tlLogic>
+</tlLogics>

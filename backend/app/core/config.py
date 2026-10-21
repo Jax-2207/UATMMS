@@ -29,6 +29,8 @@ class Settings(BaseSettings):
     
     # Simulation Defaults
     SUMO_HOME: str = "C:\\Program Files (x86)\\Eclipse\\Sumo"
+    SUMO_BINARY: str = "sumo"
+    SUMO_GUI_BINARY: str = "sumo-gui"
     SIMULATION_STEP_LENGTH: float = 1.0  # seconds
     
     model_config = SettingsConfigDict(

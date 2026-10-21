@@ -3,8 +3,16 @@ UATMMS Simulation Runner CLI
 Usage: python scripts/run_simulation.py --scenario default_6junctions --steps 100
 """
 import argparse
+import os
+from pathlib import Path
 import sys
 import time
+
+# Ensure repository root is on sys.path for standalone script execution
+REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 from backend.app.simulation.manager import simulation_manager
 from backend.app.core.logging import logger
 

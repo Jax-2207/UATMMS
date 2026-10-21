@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
+    <!-- 6 Signalized Urban Core Junctions (Bangalore Central Business District) -->
+    <node id="J1_MG_Road" x="0.0" y="300.0" type="traffic_light"/>
+    <node id="J2_Brigade_Rd" x="300.0" y="300.0" type="traffic_light"/>
+    <node id="J3_Residency_Rd" x="600.0" y="300.0" type="traffic_light"/>
+    <node id="J4_Church_St" x="0.0" y="0.0" type="traffic_light"/>
+    <node id="J5_Commercial_St" x="300.0" y="0.0" type="traffic_light"/>
+    <node id="J6_Lavelle_Rd" x="600.0" y="0.0" type="traffic_light"/>
+
+    <!-- Perimeter Boundary Entry/Exit Nodes -->
+    <node id="ENTRY_N1" x="0.0" y="550.0" type="priority"/>
+    <node id="ENTRY_N2" x="300.0" y="550.0" type="priority"/>
+    <node id="ENTRY_N3" x="600.0" y="550.0" type="priority"/>
+
+    <node id="ENTRY_S4" x="0.0" y="-250.0" type="priority"/>
+    <node id="ENTRY_S5" x="300.0" y="-250.0" type="priority"/>
+    <node id="ENTRY_S6" x="600.0" y="-250.0" type="priority"/>
+
+    <node id="ENTRY_W1" x="-250.0" y="300.0" type="priority"/>
+    <node id="ENTRY_W4" x="-250.0" y="0.0" type="priority"/>
+
+    <node id="ENTRY_E3" x="850.0" y="300.0" type="priority"/>
+    <node id="ENTRY_E6" x="850.0" y="0.0" type="priority"/>
+</nodes>

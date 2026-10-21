@@ -10,10 +10,10 @@ httpx>=0.27.0
 python-dotenv>=1.0.1
 websockets>=13.1
 requests>=2.32.0
+traci>=1.28.0
+sumolib>=1.28.0
 
 # Future Phase additions (to be installed in respective phases):
-# traci
-# libsumo
 # scikit-learn
 # xgboost
 # torch

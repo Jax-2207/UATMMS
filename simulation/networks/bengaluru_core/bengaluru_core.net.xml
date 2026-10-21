@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+    <location netOffset="250.00,250.00" convBoundary="0.00,0.00,1100.00,800.00" origBoundary="-250.00,-250.00,850.00,550.00" projParameter="!"/>
+
+    <!-- Perimeter Entries -->
+    <edge id="E_N1_in" from="ENTRY_N1" to="J1_MG_Road" priority="2">
+        <lane id="E_N1_in_0" index="0" speed="13.89" length="230.00" shape="248.40,800.00 248.40,570.00"/>
+        <lane id="E_N1_in_1" index="1" speed="13.89" length="230.00" shape="251.60,800.00 251.60,570.00"/>
+    </edge>
+    <edge id="E_N1_out" from="J1_MG_Road" to="ENTRY_N1" priority="2">
+        <lane id="E_N1_out_0" index="0" speed="13.89" length="230.00" shape="254.80,570.00 254.80,800.00"/>
+        <lane id="E_N1_out_1" index="1" speed="13.89" length="230.00" shape="258.00,570.00 258.00,800.00"/>
+    </edge>
+
+    <edge id="E_N2_in" from="ENTRY_N2" to="J2_Brigade_Rd" priority="2">
+        <lane id="E_N2_in_0" index="0" speed="13.89" length="230.00" shape="548.40,800.00 548.40,570.00"/>
+        <lane id="E_N2_in_1" index="1" speed="13.89" length="230.00" shape="551.60,800.00 551.60,570.00"/>
+    </edge>
+    <edge id="E_N2_out" from="J2_Brigade_Rd" to="ENTRY_N2" priority="2">
+        <lane id="E_N2_out_0" index="0" speed="13.89" length="230.00" shape="554.80,570.00 554.80,800.00"/>
+        <lane id="E_N2_out_1" index="1" speed="13.89" length="230.00" shape="558.00,570.00 558.00,800.00"/>
+    </edge>
+
+    <edge id="E_N3_in" from="ENTRY_N3" to="J3_Residency_Rd" priority="2">
+        <lane id="E_N3_in_0" index="0" speed="13.89" length="230.00" shape="848.40,800.00 848.40,570.00"/>
+        <lane id="E_N3_in_1" index="1" speed="13.89" length="230.00" shape="851.60,800.00 851.60,570.00"/>
+    </edge>
+    <edge id="E_N3_out" from="J3_Residency_Rd" to="ENTRY_N3" priority="2">
+        <lane id="E_N3_out_0" index="0" speed="13.89" length="230.00" shape="854.80,570.00 854.80,800.00"/>
+        <lane id="E_N3_out_1" index="1" speed="13.89" length="230.00" shape="858.00,570.00 858.00,800.00"/>
+    </edge>
+
+    <!-- Internal Horizontal Segments (Top Arterial: MG Road) -->
+    <edge id="E_MG_J1_J2" from="J1_MG_Road" to="J2_Brigade_Rd" priority="3">
+        <lane id="E_MG_J1_J2_0" index="0" speed="13.89" length="260.00" shape="270.00,548.40 530.00,548.40"/>
+        <lane id="E_MG_J1_J2_1" index="1" speed="13.89" length="260.00" shape="270.00,551.60 530.00,551.60"/>
+    </edge>
+    <edge id="E_MG_J2_J1" from="J2_Brigade_Rd" to="J1_MG_Road" priority="3">
+        <lane id="E_MG_J2_J1_0" index="0" speed="13.89" length="260.00" shape="530.00,554.80 270.00,554.80"/>
+        <lane id="E_MG_J2_J1_1" index="1" speed="13.89" length="260.00" shape="530.00,558.00 270.00,558.00"/>
+    </edge>
+
+    <edge id="E_MG_J2_J3" from="J2_Brigade_Rd" to="J3_Residency_Rd" priority="3">
+        <lane id="E_MG_J2_J3_0" index="0" speed="13.89" length="260.00" shape="570.00,548.40 830.00,548.40"/>
+        <lane id="E_MG_J2_J3_1" index="1" speed="13.89" length="260.00" shape="570.00,551.60 830.00,551.60"/>
+    </edge>
+    <edge id="E_MG_J3_J2" from="J3_Residency_Rd" to="J2_Brigade_Rd" priority="3">
+        <lane id="E_MG_J3_J2_0" index="0" speed="13.89" length="260.00" shape="830.00,554.80 570.00,554.80"/>
+        <lane id="E_MG_J3_J2_1" index="1" speed="13.89" length="260.00" shape="830.00,558.00 570.00,558.00"/>
+    </edge>
+
+    <!-- Internal Horizontal Segments (Bottom Arterial: Church St / Commercial St) -->
+    <edge id="E_CH_J4_J5" from="J4_Church_St" to="J5_Commercial_St" priority="2">
+        <lane id="E_CH_J4_J5_0" index="0" speed="11.11" length="260.00" shape="270.00,248.40 530.00,248.40"/>
+        <lane id="E_CH_J4_J5_1" index="1" speed="11.11" length="260.00" shape="270.00,251.60 530.00,251.60"/>
+    </edge>
+    <edge id="E_CH_J5_J4" from="J5_Commercial_St" to="J4_Church_St" priority="2">
+        <lane id="E_CH_J5_J4_0" index="0" speed="11.11" length="260.00" shape="530.00,254.80 270.00,254.80"/>
+        <lane id="E_CH_J5_J4_1" index="1" speed="11.11" length="260.00" shape="530.00,258.00 270.00,258.00"/>
+    </edge>
+
+    <edge id="E_CO_J5_J6" from="J5_Commercial_St" to="J6_Lavelle_Rd" priority="2">
+        <lane id="E_CO_J5_J6_0" index="0" speed="11.11" length="260.00" shape="570.00,248.40 830.00,248.40"/>
+        <lane id="E_CO_J5_J6_1" index="1" speed="11.11" length="260.00" shape="570.00,251.60 830.00,251.60"/>
+    </edge>
+    <edge id="E_CO_J6_J5" from="J6_Lavelle_Rd" to="J5_Commercial_St" priority="2">
+        <lane id="E_CO_J6_J5_0" index="0" speed="11.11" length="260.00" shape="830.00,254.80 570.00,254.80"/>
+        <lane id="E_CO_J6_J5_1" index="1" speed="11.11" length="260.00" shape="830.00,258.00 570.00,258.00"/>
+    </edge>
+
+    <!-- Vertical Segments (Connecting Top & Bottom Rows) -->
+    <!-- J1 <-> J4 -->
+    <edge id="E_VERT_J1_J4" from="J1_MG_Road" to="J4_Church_St" priority="2">
+        <lane id="E_VERT_J1_J4_0" index="0" speed="11.11" length="260.00" shape="248.40,530.00 248.40,270.00"/>
+        <lane id="E_VERT_J1_J4_1" index="1" speed="11.11" length="260.00" shape="251.60,530.00 251.60,270.00"/>
+    </edge>
+    <edge id="E_VERT_J4_J1" from="J4_Church_St" to="J1_MG_Road" priority="2">
+        <lane id="E_VERT_J4_J1_0" index="0" speed="11.11" length="260.00" shape="254.80,270.00 254.80,530.00"/>
+        <lane id="E_VERT_J4_J1_1" index="1" speed="11.11" length="260.00" shape="258.00,270.00 258.00,530.00"/>
+    </edge>
+
+    <!-- J2 <-> J5 (Brigade Road) -->
+    <edge id="E_BRIGADE_J2_J5" from="J2_Brigade_Rd" to="J5_Commercial_St" priority="3">
+        <lane id="E_BRIGADE_J2_J5_0" index="0" speed="13.89" length="260.00" shape="548.40,530.00 548.40,270.00"/>
+        <lane id="E_BRIGADE_J2_J5_1" index="1" speed="13.89" length="260.00" shape="551.60,530.00 551.60,270.00"/>
+    </edge>
+    <edge id="E_BRIGADE_J5_J2" from="J5_Commercial_St" to="J2_Brigade_Rd" priority="3">
+        <lane id="E_BRIGADE_J5_J2_0" index="0" speed="13.89" length="260.00" shape="554.80,270.00 554.80,530.00"/>
+        <lane id="E_BRIGADE_J5_J2_1" index="1" speed="13.89" length="260.00" shape="558.00,270.00 558.00,530.00"/>
+    </edge>
+
+    <!-- J3 <-> J6 (Lavelle Road Link) -->
+    <edge id="E_VERT_J3_J6" from="J3_Residency_Rd" to="J6_Lavelle_Rd" priority="2">
+        <lane id="E_VERT_J3_J6_0" index="0" speed="11.11" length="260.00" shape="848.40,530.00 848.40,270.00"/>
+        <lane id="E_VERT_J3_J6_1" index="1" speed="11.11" length="260.00" shape="851.60,530.00 851.60,270.00"/>
+    </edge>
+    <edge id="E_VERT_J6_J3" from="J6_Lavelle_Rd" to="J3_Residency_Rd" priority="2">
+        <lane id="E_VERT_J6_J3_0" index="0" speed="11.11" length="260.00" shape="854.80,270.00 854.80,530.00"/>
+        <lane id="E_VERT_J6_J3_1" index="1" speed="11.11" length="260.00" shape="858.00,270.00 858.00,530.00"/>
+    </edge>
+
+    <!-- West / East / South Entry Edges -->
+    <edge id="E_W1_in" from="ENTRY_W1" to="J1_MG_Road" priority="2">
+        <lane id="E_W1_in_0" index="0" speed="13.89" length="230.00" shape="0.00,548.40 230.00,548.40"/>
+        <lane id="E_W1_in_1" index="1" speed="13.89" length="230.00" shape="0.00,551.60 230.00,551.60"/>
+    </edge>
+    <edge id="E_W1_out" from="J1_MG_Road" to="ENTRY_W1" priority="2">
+        <lane id="E_W1_out_0" index="0" speed="13.89" length="230.00" shape="230.00,554.80 0.00,554.80"/>
+        <lane id="E_W1_out_1" index="1" speed="13.89" length="230.00" shape="230.00,558.00 0.00,558.00"/>
+    </edge>
+
+    <edge id="E_E3_in" from="ENTRY_E3" to="J3_Residency_Rd" priority="2">
+        <lane id="E_E3_in_0" index="0" speed="13.89" length="230.00" shape="1100.00,554.80 870.00,554.80"/>
+        <lane id="E_E3_in_1" index="1" speed="13.89" length="230.00" shape="1100.00,558.00 870.00,558.00"/>
+    </edge>
+    <edge id="E_E3_out" from="J3_Residency_Rd" to="ENTRY_E3" priority="2">
+        <lane id="E_E3_out_0" index="0" speed="13.89" length="230.00" shape="870.00,548.40 1100.00,548.40"/>
+        <lane id="E_E3_out_1" index="1" speed="13.89" length="230.00" shape="870.00,551.60 1100.00,551.60"/>
+    </edge>
+
+    <!-- Traffic Light Programs for 6 Junctions -->
+    <tlLogic id="J1_MG_Road" type="static" programID="0" offset="0">
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+    </tlLogic>
+
+    <tlLogic id="J2_Brigade_Rd" type="static" programID="0" offset="5">
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+    </tlLogic>
+
+    <tlLogic id="J3_Residency_Rd" type="static" programID="0" offset="10">
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+    </tlLogic>
+
+    <tlLogic id="J4_Church_St" type="static" programID="0" offset="0">
+        <phase duration="25" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+    </tlLogic>
+
+    <tlLogic id="J5_Commercial_St" type="static" programID="0" offset="5">
+        <phase duration="30" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+    </tlLogic>
+
+    <tlLogic id="J6_Lavelle_Rd" type="static" programID="0" offset="10">
+        <phase duration="25" state="GGGGggrrrrGGGGggrrrr" name="NS Green"/>
+        <phase duration="3"  state="yyyyyyrrrryyyyyyrrrr" name="NS Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+        <phase duration="25" state="rrrrGGGGggrrrrGGGGgg" name="EW Green"/>
+        <phase duration="3"  state="rrrryyyyyyrrrryyyyyy" name="EW Yellow"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr" name="All Red"/>
+    </tlLogic>
+
+    <!-- Junction Definitions -->
+    <junction id="J1_MG_Road" type="traffic_light" x="250.00" y="550.00" incLanes="E_N1_in_0 E_N1_in_1 E_MG_J2_J1_0 E_MG_J2_J1_1 E_VERT_J4_J1_0 E_VERT_J4_J1_1 E_W1_in_0 E_W1_in_1" intLanes="" shape="238.40,561.60 261.60,561.60 261.60,538.40 238.40,538.40"/>
+    <junction id="J2_Brigade_Rd" type="traffic_light" x="550.00" y="550.00" incLanes="E_N2_in_0 E_N2_in_1 E_MG_J3_J2_0 E_MG_J3_J2_1 E_BRIGADE_J5_J2_0 E_BRIGADE_J5_J2_1 E_MG_J1_J2_0 E_MG_J1_J2_1" intLanes="" shape="538.40,561.60 561.60,561.60 561.60,538.40 538.40,538.40"/>
+    <junction id="J3_Residency_Rd" type="traffic_light" x="850.00" y="550.00" incLanes="E_N3_in_0 E_N3_in_1 E_E3_in_0 E_E3_in_1 E_VERT_J6_J3_0 E_VERT_J6_J3_1 E_MG_J2_J3_0 E_MG_J2_J3_1" intLanes="" shape="838.40,561.60 861.60,561.60 861.60,538.40 838.40,538.40"/>
+
+    <junction id="J4_Church_St" type="traffic_light" x="250.00" y="250.00" incLanes="E_VERT_J1_J4_0 E_VERT_J1_J4_1 E_CH_J5_J4_0 E_CH_J5_J4_1" intLanes="" shape="238.40,261.60 261.60,261.60 261.60,238.40 238.40,238.40"/>
+    <junction id="J5_Commercial_St" type="traffic_light" x="550.00" y="250.00" incLanes="E_BRIGADE_J2_J5_0 E_BRIGADE_J2_J5_1 E_CO_J6_J5_0 E_CO_J6_J5_1 E_CH_J4_J5_0 E_CH_J4_J5_1" intLanes="" shape="538.40,261.60 561.60,261.60 561.60,238.40 538.40,238.40"/>
+    <junction id="J6_Lavelle_Rd" type="traffic_light" x="850.00" y="250.00" incLanes="E_VERT_J3_J6_0 E_VERT_J3_J6_1 E_CO_J5_J6_0 E_CO_J5_J6_1" intLanes="" shape="838.40,261.60 861.60,261.60 861.60,238.40 838.40,238.40"/>
+
+    <!-- Key Corridor Connections -->
+    <connection from="E_N1_in" to="E_VERT_J1_J4" fromLane="0" toLane="0" tl="J1_MG_Road" linkIndex="0" dir="s" state="M"/>
+    <connection from="E_N1_in" to="E_MG_J1_J2" fromLane="1" toLane="1" tl="J1_MG_Road" linkIndex="1" dir="l" state="M"/>
+    <connection from="E_MG_J1_J2" to="E_MG_J2_J3" fromLane="0" toLane="0" tl="J2_Brigade_Rd" linkIndex="0" dir="s" state="M"/>
+    <connection from="E_MG_J1_J2" to="E_BRIGADE_J2_J5" fromLane="1" toLane="1" tl="J2_Brigade_Rd" linkIndex="1" dir="r" state="M"/>
+    <connection from="E_MG_J2_J3" to="E_E3_out" fromLane="0" toLane="0" tl="J3_Residency_Rd" linkIndex="0" dir="s" state="M"/>
+    <connection from="E_MG_J2_J3" to="E_VERT_J3_J6" fromLane="1" toLane="1" tl="J3_Residency_Rd" linkIndex="1" dir="r" state="M"/>
+    <connection from="E_BRIGADE_J2_J5" to="E_CO_J5_J6" fromLane="0" toLane="0" tl="J5_Commercial_St" linkIndex="0" dir="l" state="M"/>
+    <connection from="E_BRIGADE_J2_J5" to="E_CH_J5_J4" fromLane="1" toLane="1" tl="J5_Commercial_St" linkIndex="1" dir="r" state="M"/>
+</net>

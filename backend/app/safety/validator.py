@@ -14,8 +14,11 @@ class JunctionSafetyState:
     max_green_s: float = 90.0
     yellow_clearance_s: float = 3.0
     all_red_clearance_s: float = 2.0
+    yellow_phases: Set[int] = field(default_factory=lambda: {1, 4})
+    all_red_phases: Set[int] = field(default_factory=lambda: {2, 5})
     # Conflicting phase pairs: set of tuples (phase_a, phase_b) that cannot both be green
     conflicting_phases: Set[Tuple[int, int]] = field(default_factory=set)
+
 
 
 class SafetyValidator:
@@ -39,17 +42,19 @@ class SafetyValidator:
         initial_phase: int = 0,
         min_green_s: float = 10.0,
         max_green_s: float = 90.0,
-        conflicting_phases: Optional[Set[Tuple[int, int]]] = None
+        conflicting_phases: Optional[Set[Tuple[int, int]]] = None,
+        initial_phase_time_s: Optional[float] = None
     ):
+        start_time = initial_phase_time_s if initial_phase_time_s is not None else 0.0
         self._junctions[junction_id] = JunctionSafetyState(
             junction_id=junction_id,
             current_phase_index=initial_phase,
-            phase_started_at_s=time.time(),
+            phase_started_at_s=start_time,
             min_green_s=min_green_s,
             max_green_s=max_green_s,
             conflicting_phases=conflicting_phases or set()
         )
-        logger.info(f"Registered junction {junction_id} with SafetyValidator.")
+        logger.info(f"Registered junction {junction_id} with SafetyValidator (t_start={start_time}s).")
 
     def validate_phase_transition(
         self,
@@ -65,8 +70,8 @@ class SafetyValidator:
         now = current_sim_time_s if current_sim_time_s is not None else time.time()
 
         if junction_id not in self._junctions:
-            # Auto-register default profile for safety monitoring
-            self.register_junction(junction_id)
+            # Auto-register default profile with authoritative current simulation time
+            self.register_junction(junction_id, initial_phase_time_s=now)
 
         state = self._junctions[junction_id]
 
@@ -74,15 +79,28 @@ class SafetyValidator:
         if target_phase == state.current_phase_index:
             return True, "Phase unchanged"
 
-        # 2. Minimum green constraint
+        # 2. Phase duration constraint (Minimum green or clearance interval)
         elapsed = now - state.phase_started_at_s
-        if elapsed < state.min_green_s:
+        curr_p = state.current_phase_index
+
+        if curr_p in state.yellow_phases:
+            required_time = state.yellow_clearance_s
+            phase_type_name = "Yellow clearance"
+        elif curr_p in state.all_red_phases:
+            required_time = state.all_red_clearance_s
+            phase_type_name = "All-red clearance"
+        else:
+            required_time = state.min_green_s
+            phase_type_name = "Minimum green"
+
+        if elapsed < required_time:
             reason = (
-                f"Minimum green violation: junction {junction_id} has been in phase "
-                f"{state.current_phase_index} for {elapsed:.1f}s (required: {state.min_green_s}s)."
+                f"{phase_type_name} violation: junction {junction_id} has been in phase "
+                f"{curr_p} for {elapsed:.1f}s (required: {required_time:.1f}s)."
             )
             self._log_audit(junction_id, target_phase, False, reason, is_emergency)
             return False, reason
+
 
         # 3. Conflicting phase check
         pair = (state.current_phase_index, target_phase)

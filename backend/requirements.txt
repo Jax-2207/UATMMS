@@ -13,11 +13,16 @@ requests>=2.32.0
 traci>=1.28.0
 sumolib>=1.28.0
 
-# Future Phase additions (to be installed in respective phases):
-# scikit-learn
-# xgboost
-# torch
-# gymnasium
-# stable-baselines3
-# firebase-admin
-# psycopg2-binary
+# Phase 6: Traffic Prediction
+scikit-learn>=1.5.0
+xgboost>=2.1.0
+
+# Phase 7: Reinforcement Learning
+gymnasium>=0.30.0
+stable-baselines3>=2.4.0
+torch>=2.3.0
+
+# Phase 8: Database & Authentication
+psycopg2-binary>=2.9.0
+alembic>=1.13.0
+firebase-admin>=6.5.0

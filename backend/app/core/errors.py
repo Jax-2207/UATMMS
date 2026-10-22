@@ -27,3 +27,8 @@ class RoutingError(UATMMSError):
 class AuthorizationError(UATMMSError):
     """Raised when a user lacks required permissions."""
     pass
+
+
+class ValidationError(UATMMSError):
+    """Raised when input validation fails."""
+    pass

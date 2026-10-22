@@ -1,13 +1,13 @@
 import uuid
 from fastapi import APIRouter
-from backend.app.schemas.emergency import EmergencyRequest, GreenCorridorResponse
+from backend.app.schemas.emergency import EmergencyRequest, EmergencyRequestResponse
 from backend.app.safety.validator import safety_validator
 from backend.app.simulation.manager import simulation_manager
 
 router = APIRouter()
 
 
-@router.post("/dispatch", response_model=GreenCorridorResponse, summary="Request Emergency Green Corridor")
+@router.post("/dispatch", response_model=EmergencyRequestResponse, summary="Request Emergency Green Corridor")
 async def dispatch_emergency(request: EmergencyRequest):
     req_id = f"emg_{str(uuid.uuid4())[:8]}"
     

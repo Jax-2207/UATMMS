@@ -6,106 +6,276 @@ interface WelcomeScreenProps {
 }
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onSelectRole }) => {
-  return (
-    <div className="flex-1 flex flex-col justify-between bg-white px-6 pb-6 pt-4 select-none">
-      <div>
+  const containerStyle: React.CSSProperties = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+    padding: '24px 24px 24px 24px',
+    paddingTop: '16px',
+    userSelect: 'none',
+  };
 
+  const headerStyle: React.CSSProperties = {
+    marginTop: '24px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: '16px',
+  };
+
+  const logoBoxStyle: React.CSSProperties = {
+    width: '40px',
+    height: '40px',
+    borderRadius: '16px',
+    backgroundColor: '#1e293b',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  };
+
+  const dotStyle = (color: string): React.CSSProperties => ({
+    width: '10px',
+    height: '10px',
+    borderRadius: '50%',
+    backgroundColor: color,
+    boxShadow: `0 0 6px ${color}`,
+  });
+
+  const logoDotsStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '4px',
+    alignItems: 'center',
+  };
+
+  const titleStyle: React.CSSProperties = {
+    fontFamily: "'Outfit', sans-serif",
+    fontSize: '20px',
+    fontWeight: 'bold',
+    letterSpacing: '-0.02em',
+    color: '#0f172a',
+  };
+
+  const headingStyle: React.CSSProperties = {
+    fontFamily: "'Outfit', sans-serif",
+    fontSize: '24px',
+    fontWeight: '800',
+    color: '#0f172a',
+    lineHeight: 1.2,
+    marginTop: '8px',
+  };
+
+  const subtextStyle: React.CSSProperties = {
+    fontSize: '12px',
+    color: '#64748b',
+    lineHeight: 1.4,
+    maxWidth: '280px',
+  };
+
+  const cardsContainerStyle: React.CSSProperties = {
+    marginTop: '32px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '12px',
+  };
+
+  const cardLabelStyle: React.CSSProperties = {
+    fontSize: '11px',
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    color: '#94a3b8',
+  };
+
+  const cardButtonStyle = (hoverColor: string): React.CSSProperties => ({
+    width: '100%',
+    textAlign: 'left',
+    padding: '16px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    border: '1px solid #e2e8f0',
+    borderRadius: '18px',
+    backgroundColor: 'white',
+    cursor: 'pointer',
+    transition: 'all 0.2s',
+  });
+
+  const cardIconStyle = (bgColor: string, iconColor: string): React.CSSProperties => ({
+    width: '40px',
+    height: '40px',
+    borderRadius: '12px',
+    backgroundColor: bgColor,
+    color: iconColor,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  });
+
+  const cardContentStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '14px',
+    flex: 1,
+  };
+
+  const cardTitleStyle: React.CSSProperties = {
+    fontFamily: "'Outfit', sans-serif",
+    fontWeight: '700',
+    fontSize: '14px',
+    color: '#0f172a',
+  };
+
+  const cardDescStyle: React.CSSProperties = {
+    fontSize: '11px',
+    color: '#64748b',
+  };
+
+  const footerStyle: React.CSSProperties = {
+    paddingTop: '16px',
+    textAlign: 'center',
+  };
+
+  const footerTextStyle: React.CSSProperties = {
+    fontSize: '11px',
+    color: '#94a3b8',
+  };
+
+  const navPillStyle: React.CSSProperties = {
+    width: '110px',
+    height: '4px',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    borderRadius: '2px',
+    margin: '6px auto 4px',
+  };
+
+  return (
+    <div style={containerStyle}>
+      <div>
         {/* Brand Logo & Header */}
-        <div className="mt-6 flex flex-col items-start gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-2xl bg-slate-900 flex items-center justify-center shadow-md">
-              <div className="flex flex-col gap-1 items-center">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_6px_#ef4444]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+        <div style={headerStyle}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={logoBoxStyle}>
+              <div style={logoDotsStyle}>
+                <div style={dotStyle('#ef4444')} />
+                <div style={dotStyle('#fbbf24')} />
+                <div style={dotStyle('#10b981')} />
               </div>
             </div>
-            <span className="font-heading font-extrabold text-xl tracking-tight text-slate-900">UATMMS</span>
+            <span style={titleStyle}>UATMMS</span>
           </div>
 
-          <div className="space-y-1.5 mt-2">
-            <h1 className="font-heading text-2xl font-extrabold text-slate-900 leading-tight">
+          <div style={{ marginTop: '8px' }}>
+            <h1 style={headingStyle}>
               Smarter signals.<br />
               Safer roads.<br />
               Faster responses.
             </h1>
-            <p className="text-xs text-slate-500 leading-relaxed max-w-[280px]">
+            <p style={subtextStyle}>
               Live traffic, safe routes and emergency green corridors.
             </p>
           </div>
         </div>
 
         {/* Continue As Selection Cards */}
-        <div className="mt-8 space-y-3">
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+        <div style={cardsContainerStyle}>
+          <span style={cardLabelStyle}>
             Continue as
           </span>
 
           {/* Role 1: Driver / Commuter */}
           <button
             onClick={() => onSelectRole('driver')}
-            className="w-full text-left card-android p-4 flex items-center justify-between border border-slate-200/80 hover:border-orange-500/50 hover:shadow-md transition-all cursor-pointer group"
+            style={cardButtonStyle('#blue')}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#fbbf24';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = '#e2e8f0';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
           >
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                <Car className="w-5 h-5" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={cardIconStyle('#eff6ff', '#2563eb')}>
+                <Car size={20} />
               </div>
-              <div>
-                <h3 className="font-heading font-bold text-sm text-slate-900 group-hover:text-orange-600 transition-colors">
+              <div style={{ textAlign: 'left' }}>
+                <h3 style={cardTitleStyle}>
                   Driver / Commuter
                 </h3>
-                <p className="text-[11px] text-slate-500">Live traffic, alerts and smart routes</p>
+                <p style={cardDescStyle}>Live traffic, alerts and smart routes</p>
               </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight size={16} color={'#cbd5e1'} />
           </button>
 
           {/* Role 2: Ambulance / Fire Crew */}
           <button
             onClick={() => onSelectRole('emergency')}
-            className="w-full text-left card-android p-4 flex items-center justify-between border border-slate-200/80 hover:border-red-500/50 hover:shadow-md transition-all cursor-pointer group"
+            style={cardButtonStyle('#red')}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#ef4444';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = '#e2e8f0';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
           >
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
-                <Siren className="w-5 h-5" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={cardIconStyle('#fef2f2', '#dc2626')}>
+                <Siren size={20} />
               </div>
-              <div>
-                <h3 className="font-heading font-bold text-sm text-slate-900 group-hover:text-red-600 transition-colors">
+              <div style={{ textAlign: 'left' }}>
+                <h3 style={cardTitleStyle}>
                   Ambulance / Fire crew
                 </h3>
-                <p className="text-[11px] text-slate-500">Request a green corridor</p>
+                <p style={cardDescStyle}>Request a green corridor</p>
               </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight size={16} color={'#cbd5e1'} />
           </button>
 
           {/* Role 3: Traffic Police (Field) */}
           <button
             onClick={() => onSelectRole('police')}
-            className="w-full text-left card-android p-4 flex items-center justify-between border border-slate-200/80 hover:border-amber-500/50 hover:shadow-md transition-all cursor-pointer group"
+            style={cardButtonStyle('#amber')}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#f59e0b';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = '#e2e8f0';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
           >
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
-                <Shield className="w-5 h-5" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={cardIconStyle('#fffbeb', '#b45309')}>
+                <Shield size={20} />
               </div>
-              <div>
-                <h3 className="font-heading font-bold text-sm text-slate-900 group-hover:text-amber-700 transition-colors">
+              <div style={{ textAlign: 'left' }}>
+                <h3 style={cardTitleStyle}>
                   Traffic Police (field)
                 </h3>
-                <p className="text-[11px] text-slate-500">Verify incidents on the ground</p>
+                <p style={cardDescStyle}>Verify incidents on the ground</p>
               </div>
             </div>
-            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight size={16} color={'#cbd5e1'} />
           </button>
         </div>
       </div>
 
       {/* Footer Info */}
-      <div className="pt-4 text-center">
-        <p className="text-[11px] text-slate-400">
+      <div style={footerStyle}>
+        <p style={footerTextStyle}>
           Staff consoles (Operator, Admin, Hospital) are on the web app.
         </p>
-        <div className="android-nav-pill mt-4" />
+        <div style={navPillStyle} />
       </div>
     </div>
   );

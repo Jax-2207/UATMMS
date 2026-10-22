@@ -80,3 +80,5 @@ export interface IncidentReportPayload {
   severity: number;
   description?: string;
 }
+
+
